@@ -47,7 +47,7 @@ public class LoginTests {
         landingPage.login("irvold662ukr.net", "pbkbycrbq555");
 
         IncorrectLoginPasswordPage incorrectLoginPasswordPage = new IncorrectLoginPasswordPage(driver);
-        Assert.assertTrue(incorrectLoginPasswordPage.isPageLoaded(), "Incorrect Login?Password Page is not loaded");
+        Assert.assertTrue(incorrectLoginPasswordPage.isPageLoaded(), "Incorrect Login?Password Page is not loadedssss");
 
 
     }
