@@ -26,7 +26,7 @@ public class IncorrectLoginPasswordPage {
     public  boolean isPageLoaded(){
 
         return passwordVisibilityButton.isDisplayed()
-                && driver.getCurrentUrl().contains("https://www.linkedin.com/uas/login-submit?loginSubmitSource=GUEST_HOME")
+                && driver.getCurrentUrl().equals("https://www.linkedin.com/uas/login-submit?loginSubmitSource=GUEST_HOME")
                 && driver.getTitle().contains("LinkedIn");
 
 

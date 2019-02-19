@@ -32,8 +32,8 @@ public class LandingPage {
     public  boolean isPageLoaded(){
 
         return signInButton.isDisplayed()
-                && driver.getCurrentUrl().contains("https://www.linkedin.com");
-                //&& driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
+                && driver.getCurrentUrl().contains("https://www.linkedin.com")
+                && driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
 
 
     }

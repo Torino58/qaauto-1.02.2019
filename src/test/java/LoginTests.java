@@ -15,7 +15,7 @@ public class LoginTests {
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
 
         landingPage.login("a@b.c", "");
-        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
+        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loadeds");
 
 
     }
