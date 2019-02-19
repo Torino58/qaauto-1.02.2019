@@ -32,10 +32,10 @@ public class LoginTests {
     }
 
     @Test(dataProvider = "validData")
-    public void successfulLoginTest() {
+    public void successfulLoginTest(String userEmail, String userPassword) {
         LandingPage landingPage = new LandingPage(driver);
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
-        landingPage.login("irvold66@ukr.net", "pbkbycrbq555");
+        landingPage.login(userEmail, userPassword);
 
         HomePage homePage = new HomePage(driver);
         Assert.assertTrue(homePage.isPageLoaded(), "Home page did not load after Login");
