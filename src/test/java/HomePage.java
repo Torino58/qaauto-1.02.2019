@@ -9,21 +9,21 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        this.initElements();
+        initElements();
 
     }
 
     private void initElements() {
+
         profileNavMenuItem = driver.findElement(By.xpath("//li[@id='profile-nav-item']"));
     }
 
 
-    public  boolean isPageLoaded(){
+    public boolean isPageLoaded() {
 
         return profileNavMenuItem.isDisplayed()
                 && driver.getCurrentUrl().contains("/feed/")
                 && driver.getTitle().contains("LinkedIn");
-
 
 
     }

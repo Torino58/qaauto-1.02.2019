@@ -13,7 +13,7 @@ public class LandingPage {
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
-        this.initElements();
+        initElements();
 
     }
 
@@ -32,8 +32,8 @@ public class LandingPage {
     public  boolean isPageLoaded(){
 
         return signInButton.isDisplayed()
-                && driver.getCurrentUrl().equals("https://www.linkedin.com/")
-                && driver.getTitle().equals("LinkedIn: Войти или зарегистрироваться");
+                && driver.getCurrentUrl().contains("https://www.linkedin.com");
+                //&& driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
 
 
     }

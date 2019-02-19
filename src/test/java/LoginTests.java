@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 public class LoginTests {
 
     @Test
-    public void negativeLoginTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+    public void negativeEmptyPasswordTest() {
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.linkedin.com/");
 
@@ -19,10 +19,27 @@ public class LoginTests {
 
 
     }
+    @Test
+    public void negativeIncorrectPasswordTest() {
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.linkedin.com/");
+
+
+        LandingPage landingPage = new LandingPage(driver);
+        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
+        landingPage.login("irvold66@ukr.net", "123");
+
+        IncorrectLoginPasswordPage incorrectLoginPasswordPage = new IncorrectLoginPasswordPage(driver);
+        Assert.assertTrue(incorrectLoginPasswordPage.isPageLoaded(), "Incorrect Password");
+
+
+    }
+
 
     @Test
     public void successfulLoginTest() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.linkedin.com/");
 
