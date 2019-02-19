@@ -10,9 +10,30 @@ public class LoginTests {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.linkedin.com/");
-        //LinkedIn: Войти или зарегистрироваться
-        Assert.assertEquals(driver.getTitle(), "LinkedIn: Войти или зарегистрироватьсяx",
-                "Login page title is wrong.");
+
+        LandingPage landingPage = new LandingPage(driver);
+        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
+
+        landingPage.login("a@b.c", "");
+        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
+
+
+    }
+
+    @Test
+    public void successfulLoginTest() {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.linkedin.com/");
+
+
+        LandingPage landingPage = new LandingPage(driver);
+        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
+        landingPage.login("irvold66@ukr.net", "pbkbycrbq555");
+
+        HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(homePage.isPageLoaded(), "Home page did not load after Loginsssasdasds");
+
 
     }
 
