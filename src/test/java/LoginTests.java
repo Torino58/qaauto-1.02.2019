@@ -32,7 +32,7 @@ public class LoginTests {
         landingPage.login("irvold66@ukr.net", "pbkbycrbq555");
 
         HomePage homePage = new HomePage(driver);
-        Assert.assertTrue(homePage.isPageLoaded(), "Home page did not load after Loginsssasdasds");
+        Assert.assertTrue(homePage.isPageLoaded(), "Home page did not load after Login");
 
 
     }
