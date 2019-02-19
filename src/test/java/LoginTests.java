@@ -31,7 +31,23 @@ public class LoginTests {
         landingPage.login("irvold66@ukr.net", "123");
 
         IncorrectLoginPasswordPage incorrectLoginPasswordPage = new IncorrectLoginPasswordPage(driver);
-        Assert.assertTrue(incorrectLoginPasswordPage.isPageLoaded(), "Incorrect Password");
+        Assert.assertTrue(incorrectLoginPasswordPage.isPageLoaded(), "Incorrect Login?Password Page is not loaded");
+
+
+    }
+    @Test
+    public void negativeIncorrectLoginTest() {
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.linkedin.com/");
+
+
+        LandingPage landingPage = new LandingPage(driver);
+        Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
+        landingPage.login("irvold662ukr.net", "pbkbycrbq555");
+
+        IncorrectLoginPasswordPage incorrectLoginPasswordPage = new IncorrectLoginPasswordPage(driver);
+        Assert.assertTrue(incorrectLoginPasswordPage.isPageLoaded(), "Incorrect Login?Password Page is not loaded");
 
 
     }
