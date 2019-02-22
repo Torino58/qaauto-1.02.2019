@@ -6,11 +6,10 @@ public class LoginSubmitPage {
 
     private WebDriver driver;
 
+
     private WebElement loginForm;
     private WebElement passwordValidationMessage;
     private WebElement emailValidationMessage;
-
-
 
 
     public LoginSubmitPage(WebDriver driver) {
@@ -19,7 +18,8 @@ public class LoginSubmitPage {
 
     }
 
-    private void initElements(){
+    private void initElements() {
+
 
         loginForm = driver.findElement(By.xpath("//form[@class='login__form']"));
         passwordValidationMessage = driver.findElement(By.xpath("//div[@id='error-for-password']"));
@@ -29,7 +29,7 @@ public class LoginSubmitPage {
     }
 
 
-    public  boolean isPageLoaded(){
+    public boolean isPageLoaded() {
 
         return loginForm.isDisplayed()
                 && driver.getCurrentUrl().contains("/login-submit")
@@ -39,10 +39,12 @@ public class LoginSubmitPage {
     }
 
     public String getPasswordValidationMessageText() {
+
         return passwordValidationMessage.getText();
     }
 
     public String getEmailValidationMessage() {
+
         return emailValidationMessage.getText();
     }
 }
