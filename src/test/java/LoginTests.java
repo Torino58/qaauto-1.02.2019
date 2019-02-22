@@ -11,7 +11,7 @@ public class LoginTests {
 
     @BeforeMethod
     public void beforeMethod() {
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.linkedin.com/");
     }
@@ -65,17 +65,20 @@ public class LoginTests {
     @DataProvider
     public Object[][] validData2() {
         return new Object[][]{
-                {"irvold666@ukr.net", "pbkbycrbq555", "Hmm, we don't recognize that email. Please try again.", ""},
-                {"irvold66@ukr.nes", "pbkbycrbq555","We don't recognize that email.\n" +
-                        "Did you mean: @ukr.net?" ,""},
-                {" irvold66@ukr.net ", "pbycrbq555", "", "Hmm, that's not the right password." +
-                        " Please try again or request a new one."}
+                {"irvold666@ukr.net", "pbkbycrbq555",
+                        "Этот адрес эл. почты не зарегистрирован в LinkedIn. Повторите попытку.", ""},
+                {"irvold66@ukr.nes", "pbkbycrbq555","Этот адрес эл. почты не зарегистрирован в LinkedIn. \n" +
+                        "Возможно, вы имели в виду @ukr.net?" ,""},
+                {" irvold66@ukr.net ", "pbycrbq555",
+                        "", "Это неверный пароль" +
+                        " Повторите попытку или измените пароль."}
 
         };
     }
 
     @Test(dataProvider = "validData2")
-    public void negativeLoginReturnedToLoginSubmitTest(String userEmail, String userPassword, String emailValidation, String passwordValidation) {
+    public void negativeLoginReturnedToLoginSubmitTest(String userEmail, String userPassword,
+                                                       String emailValidation, String passwordValidation) {
         LandingPage landingPage = new LandingPage(driver);
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
         landingPage.login(userEmail, userPassword);
