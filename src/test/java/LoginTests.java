@@ -12,7 +12,7 @@ public class LoginTests {
 
     @BeforeMethod
     public void beforeMethod() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.linkedin.com/");
         landingPage = new LandingPage(driver);
@@ -27,8 +27,8 @@ public class LoginTests {
     public Object[][] validData() {
         return new Object[][]{
                 {"irvold66@ukr.net", "pbkbycrbq555"},
-                {"irvold66@ukr.NET", "pbkbycrbq555"},
-                {" irvold66@ukr.net ", "pbkbycrbq555"}
+               // {"irvold66@ukr.NET", "pbkbycrbq555"},
+               // {" irvold66@ukr.net ", "pbkbycrbq555"}
 
         };
     }
