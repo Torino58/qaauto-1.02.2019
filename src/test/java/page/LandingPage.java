@@ -1,3 +1,5 @@
+package page;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +25,21 @@ public class LandingPage {
 
     }
 
+
+    public <T> T login(String userEmail, String userPassword){
+        userEmailField.sendKeys(userEmail);
+        userPasswordField.sendKeys(userPassword);
+        signInButton.click();
+        if (driver.getCurrentUrl().contains("/feed/")){
+            return (T) new HomePage(driver);
+        }
+        if (driver.getCurrentUrl().contains("/login-submit")) {
+            return (T) new LoginSubmitPage(driver);
+        } else  {
+            return (T) new LandingPage(driver);
+        }
+
+    }
 
     public HomePage loginToHomePage(String userEmail, String userPassword) {
         userEmailField.sendKeys(userEmail);
