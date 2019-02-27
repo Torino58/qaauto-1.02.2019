@@ -16,7 +16,7 @@ public class HomePage {
     @FindBy(xpath = "//li[@id='profile-nav-item']")
     private WebElement profileNavMenuItem;
 
-    @FindBy(xpath = "form[@id='extended-nav-search']//input")
+    @FindBy(xpath = "//form[@id='extended-nav-search']//input")
     private WebElement searchField;
 
 
@@ -40,7 +40,7 @@ public class HomePage {
         searchField.sendKeys(searchTerm);
         searchField.sendKeys(Keys.ENTER);
         try {
-            sleep(3000);
+            sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
