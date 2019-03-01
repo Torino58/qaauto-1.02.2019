@@ -24,7 +24,7 @@ public class SearchTests extends BaseTest {
 
         Assert.assertTrue(searchPage.isPageLoaded(), "Search page did not load");
 
-        Assert.assertEquals(searchPage.getSize(), elementcount, "123");
+        Assert.assertEquals(searchPage.getSize(), elementcount, "Result count is wrong");
 
         Assert.assertTrue(searchPage.isElementInPage(searchTerm), "Result does not contain HR.");
 

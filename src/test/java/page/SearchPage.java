@@ -41,7 +41,7 @@ public class SearchPage {
         driver.manage().window().maximize();
         js.executeScript("scroll(0,1348)", "");
         try {
-            sleep(3000);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
