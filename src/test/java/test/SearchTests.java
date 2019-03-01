@@ -1,20 +1,19 @@
 package test;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.HomePage;
 import page.SearchPage;
 
 public class SearchTests extends BaseTest {
-
+    String searchTerm = "Human Resources";
 
     @Test()
-    public void basicSearchTest()   {
+    public void basicSearchTest() {
         String userEmail = "irvold66@ukr.net";
         String userPassword = "pbkbycrbq555";
-        String searchTerm = "HR";
+        int elementcount = 10;
+
 
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
 
@@ -25,18 +24,10 @@ public class SearchTests extends BaseTest {
 
         Assert.assertTrue(searchPage.isPageLoaded(), "Search page did not load");
 
-        JavascriptExecutor js = (JavascriptExecutor)driver;
+        Assert.assertEquals(searchPage.getSize(), elementcount, "123");
 
-        driver.manage().window().maximize();
-        js.executeScript("scroll(0,1348)","");
+        Assert.assertTrue(searchPage.isElementInPage(searchTerm), "Result does not contain HR.");
 
-        for (WebElement searchResultsList : searchResultsList) {
-            String searchResultElementText = searchResultsList.getText();
-            if (searchResultElementText.toLowerCase().contains(searchTerm.toLowerCase())) {
-                System.out.println("searchTerm found");
-            } else {
-                System.out.println("searchTerm not found");
-            }
-        }
     }
 }
+

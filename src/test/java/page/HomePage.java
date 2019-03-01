@@ -40,7 +40,7 @@ public class HomePage {
         searchField.sendKeys(searchTerm);
         searchField.sendKeys(Keys.ENTER);
         try {
-            sleep(6000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
