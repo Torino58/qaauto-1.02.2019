@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+/**
+ * Page Object class for Landing page.
+ */
 public class LandingPage {
 
     private WebDriver driver;
@@ -19,6 +22,10 @@ public class LandingPage {
     private WebElement userPasswordField;
 
 
+    /**
+     * Constructor for Landing page.
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public LandingPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -62,6 +69,10 @@ public class LandingPage {
         return new LandingPage(driver);
     }
 
+    /**
+     * Method that check if page is loaded
+     * @return true/false
+     */
     public boolean isPageLoaded() {
 
         return signInButton.isDisplayed()

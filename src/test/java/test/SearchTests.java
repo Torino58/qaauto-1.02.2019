@@ -5,6 +5,8 @@ import org.testng.annotations.Test;
 import page.HomePage;
 import page.SearchPage;
 
+import java.util.List;
+
 public class SearchTests extends BaseTest {
     String searchTerm = "Human Resources";
 
@@ -12,7 +14,7 @@ public class SearchTests extends BaseTest {
     public void basicSearchTest() {
         String userEmail = "irvold66@ukr.net";
         String userPassword = "pbkbycrbq555";
-        int elementcount = 10;
+        int elementCount = 10;
 
 
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
@@ -24,9 +26,16 @@ public class SearchTests extends BaseTest {
 
         Assert.assertTrue(searchPage.isPageLoaded(), "Search page did not load");
 
-        Assert.assertEquals(searchPage.getSize(), elementcount, "Result count is wrong");
+       Assert.assertEquals(searchPage.getSearchResultsCount(), elementCount, "Search results count is wrong");
 
-        Assert.assertTrue(searchPage.isElementInPage(searchTerm), "Result does not contain HR.");
+        List<String> searchResultsList = searchPage.getSearchResultsList();
+
+        for (String searchResult:searchResultsList) {
+
+            Assert.assertTrue(searchResult.contains(searchTerm),
+                    "SearchTerm Human Resources" + searchTerm + "not found in:\n" + searchResult);
+        }
+
 
     }
 }

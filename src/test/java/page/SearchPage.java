@@ -6,21 +6,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import static java.lang.Thread.sleep;
 
 public class SearchPage {
 
     WebDriver driver;
-    boolean isMatch = false;
 
     @FindBy(xpath = "//h3[contains(@class, 'search-results__total')]")
     private WebElement searchResultsTotal;
 
-    @FindBy(xpath = "//div[@class='search-result__wrapper']//h3")
+
+    //li[contains(@class, "search-result ")]
+    @FindBy(xpath = "//li[contains(@class, 'search-result ')]")
     public
-    List<WebElement> searchResultsList;
+    List<WebElement> searchResultElements;
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
@@ -32,40 +32,24 @@ public class SearchPage {
 
         return searchResultsTotal.isDisplayed()
                 && driver.getCurrentUrl().contains("/search/results/");
-        //&& driver.getTitle().contains("| Поиск | LinkedIn");
+                //&& driver.getTitle().contains("| Поиск | LinkedIn");
     }
 
-    public int getSize() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        driver.manage().window().maximize();
-        js.executeScript("scroll(0,1348)", "");
-        try {
-            sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return searchResultsList.size();
+    public int getSearchResultsCount() {
+        return searchResultElements.size();
     }
 
 
-    public boolean isElementInPage(String searchTerm) {
+    public List<String> getSearchResultsList() {
+        List<String> searchResultStringsList = new ArrayList<String>();
+        for (WebElement searchResultElement : searchResultElements) {
+            ((JavascriptExecutor) driver).
+                    executeScript("arguments[0].scrollIntoView(true);", searchResultElement);
 
-
-        for (WebElement searchResultList : searchResultsList) {
-
-            if (searchResultList.getText().toLowerCase().contains(searchTerm.toLowerCase())) {
-
-                isMatch = true;
-            } else {
-
-                isMatch = false;
-                break;
-            }
-
+            String searchResultString = searchResultElement.getText();
+            searchResultStringsList.add(searchResultString);
         }
-
-        return isMatch;
+        return searchResultStringsList;
     }
 
 
