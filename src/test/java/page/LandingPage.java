@@ -1,9 +1,12 @@
 package page;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import static java.lang.Thread.sleep;
 
 /**
  * Page Object class for Landing page.
@@ -20,6 +23,9 @@ public class LandingPage {
 
     @FindBy(xpath = "//input[@class='login-password reg-field__input']")
     private WebElement userPasswordField;
+
+    @FindBy(xpath = "//a[@class='link-forgot-password']")
+    private  WebElement resetPassword;
 
 
     /**
@@ -55,19 +61,6 @@ public class LandingPage {
         return new HomePage(driver);
     }
 
-    public LoginSubmitPage loginToLoginSubmitPage(String userEmail, String userPassword) {
-        userEmailField.sendKeys(userEmail);
-        userPasswordField.sendKeys(userPassword);
-        signInButton.click();
-        return new LoginSubmitPage(driver);
-    }
-
-    public LandingPage loginToLandingPage(String userEmail, String userPassword) {
-        userEmailField.sendKeys(userEmail);
-        userPasswordField.sendKeys(userPassword);
-        signInButton.click();
-        return new LandingPage(driver);
-    }
 
     /**
      * Method that check if page is loaded
@@ -76,9 +69,20 @@ public class LandingPage {
     public boolean isPageLoaded() {
 
         return signInButton.isDisplayed()
-                && driver.getCurrentUrl().contains("https://www.linkedin.com");
-               // && driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
+                && driver.getCurrentUrl().contains("https://www.linkedin.com")
+                && driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
 
 
+    }
+
+
+    public ResetPasswordPage reset() {
+        resetPassword.sendKeys(Keys.ENTER);
+        try {
+            sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new ResetPasswordPage(driver);
     }
 }

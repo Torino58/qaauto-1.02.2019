@@ -26,11 +26,11 @@ public class SearchTests extends BaseTest {
 
         Assert.assertTrue(searchPage.isPageLoaded(), "Search page did not load");
 
-       Assert.assertEquals(searchPage.getSearchResultsCount(), elementCount, "Search results count is wrong");
+        Assert.assertEquals(searchPage.getSearchResultsCount(), elementCount, "Search results count is wrong");
 
         List<String> searchResultsList = searchPage.getSearchResultsList();
 
-        for (String searchResult:searchResultsList) {
+        for (String searchResult : searchResultsList) {
 
             Assert.assertTrue(searchResult.contains(searchTerm),
                     "SearchTerm Human Resources" + searchTerm + "not found in:\n" + searchResult);
