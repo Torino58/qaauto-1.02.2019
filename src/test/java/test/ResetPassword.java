@@ -22,8 +22,8 @@ public class ResetPassword extends BaseTest {
 
         Assert.assertTrue(checkPointPage.isPageLoaded(),"Search page did not load");
 
-        AcceptEmailPage asseptEmailPage = checkPointPage.sendEmail();
+        AcceptEmailPage acceptEmailPage = checkPointPage.sendEmail();
 
-        Assert.assertTrue(asseptEmailPage.isPageLoaded(),"Search page did not load");
+        Assert.assertTrue(acceptEmailPage.isPageLoaded(),"Search page did not load");
     }
 }
