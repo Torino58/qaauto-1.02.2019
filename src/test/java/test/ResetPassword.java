@@ -2,6 +2,7 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import page.AcceptEmailPage;
 import page.CheckPointPage;
 import page.ResetPasswordPage;
 
@@ -20,5 +21,9 @@ public class ResetPassword extends BaseTest {
         CheckPointPage checkPointPage = resetPasswordPage.addEmail(userEmail);
 
         Assert.assertTrue(checkPointPage.isPageLoaded(),"Search page did not load");
+
+        AcceptEmailPage asseptEmailPage = checkPointPage.sendEmail();
+
+        Assert.assertTrue(asseptEmailPage.isPageLoaded(),"Search page did not load");
     }
 }
