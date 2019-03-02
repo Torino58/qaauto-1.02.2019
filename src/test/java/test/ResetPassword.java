@@ -9,21 +9,21 @@ import page.ResetPasswordPage;
 public class ResetPassword extends BaseTest {
 
     @Test
-    public void resetPasswordTest(){
+    public void resetPasswordTest() {
         String userEmail = "irvold66@ukr.net";
 
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
 
         ResetPasswordPage resetPasswordPage = landingPage.reset();
 
-        Assert.assertTrue(resetPasswordPage.isPageLoaded(), "Search page did not load");
+        Assert.assertTrue(resetPasswordPage.isPageLoaded(), "ResetPasswordPage page did not load");
 
         CheckPointPage checkPointPage = resetPasswordPage.addEmail(userEmail);
 
-        Assert.assertTrue(checkPointPage.isPageLoaded(),"Search page did not load");
+        Assert.assertTrue(checkPointPage.isPageLoaded(), "CheckPointPage page did not load");
 
         AcceptEmailPage acceptEmailPage = checkPointPage.sendEmail();
 
-        Assert.assertTrue(acceptEmailPage.isPageLoaded(),"Search page did not load");
+        Assert.assertTrue(acceptEmailPage.isPageLoaded(), "AcceptEmailPage page did not load");
     }
 }

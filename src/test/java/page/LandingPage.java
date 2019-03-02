@@ -25,11 +25,12 @@ public class LandingPage {
     private WebElement userPasswordField;
 
     @FindBy(xpath = "//a[@class='link-forgot-password']")
-    private  WebElement resetPassword;
+    private WebElement resetPassword;
 
 
     /**
      * Constructor for Landing page.
+     *
      * @param driver - WebDriver instance from BaseTest.
      */
     public LandingPage(WebDriver driver) {
@@ -39,38 +40,32 @@ public class LandingPage {
     }
 
 
-    public <T> T login(String userEmail, String userPassword){
+    public <T> T login(String userEmail, String userPassword) {
         userEmailField.sendKeys(userEmail);
         userPasswordField.sendKeys(userPassword);
         signInButton.click();
-        if (driver.getCurrentUrl().contains("/feed/")){
+        if (driver.getCurrentUrl().contains("/feed/")) {
             return (T) new HomePage(driver);
         }
         if (driver.getCurrentUrl().contains("/login-submit")) {
             return (T) new LoginSubmitPage(driver);
-        } else  {
+        } else {
             return (T) new LandingPage(driver);
         }
 
     }
 
-    public HomePage loginToHomePage(String userEmail, String userPassword) {
-        userEmailField.sendKeys(userEmail);
-        userPasswordField.sendKeys(userPassword);
-        signInButton.click();
-        return new HomePage(driver);
-    }
-
 
     /**
      * Method that check if page is loaded
+     *
      * @return true/false
      */
     public boolean isPageLoaded() {
 
         return signInButton.isDisplayed()
                 && driver.getCurrentUrl().contains("https://www.linkedin.com");
-                //&& driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
+        //&& driver.getTitle().contains("LinkedIn: Войти или зарегистрироваться");
 
 
     }

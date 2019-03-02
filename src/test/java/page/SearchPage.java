@@ -32,7 +32,7 @@ public class SearchPage {
 
         return searchResultsTotal.isDisplayed()
                 && driver.getCurrentUrl().contains("/search/results/");
-                //&& driver.getTitle().contains("| Поиск | LinkedIn");
+        //&& driver.getTitle().contains("| Поиск | LinkedIn");
     }
 
     public int getSearchResultsCount() {

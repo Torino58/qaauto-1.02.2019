@@ -21,7 +21,7 @@ public class AcceptEmailPage {
 
         return differentEmailButton.isDisplayed()
                 && driver.getCurrentUrl().contains("/checkpoint/rp/");
-               // && driver.getTitle().contains("Проверьте, получили ли вы сообщение эл. почты со ссылкой для изменения пароля. | LinkedIn");
+        // && driver.getTitle().contains("Проверьте, получили ли вы сообщение эл. почты со ссылкой для изменения пароля. | LinkedIn");
 
 
     }
