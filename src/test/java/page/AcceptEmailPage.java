@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static java.lang.Thread.sleep;
+
 public class AcceptEmailPage {
 
     private WebDriver driver;
@@ -25,5 +27,16 @@ public class AcceptEmailPage {
 
 
     }
+
+    public SetNewPassword setNewPassword() {
+
+        try {
+            sleep(300000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new SetNewPassword(driver);
+    }
+
 
 }
