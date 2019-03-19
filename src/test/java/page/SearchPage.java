@@ -9,9 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchPage {
+public class SearchPage extends BasePage{
 
-    WebDriver driver;
 
     @FindBy(xpath = "//h3[contains(@class, 'search-results__total')]")
     private WebElement searchResultsTotal;

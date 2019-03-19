@@ -1,7 +1,6 @@
 package page;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +9,8 @@ import util.GMailService;
 
 import static java.lang.Thread.sleep;
 
-public class ResetPasswordPage {
+public class ResetPasswordPage extends BasePage{
 
-    private WebDriver driver;
 
     @FindBy(xpath = "//input[@id='username']")
     WebElement inputUserName;
@@ -35,7 +33,7 @@ public class ResetPasswordPage {
     }
 
 
-    public void findAccount(String userEmail) {
+    public RequestPasswordResetSubmitPage findAccount(String userEmail) {
         inputUserName.sendKeys(userEmail);
 
         String messageSubject = "Илья, данное сообщение содержит ссылку для изменения пароля";
@@ -46,13 +44,14 @@ public class ResetPasswordPage {
         gMailService.connect();
 
         submitButton.click();
-        String message = gMailService.waitMessage(messageSubject, messageTo, messageFrom, 20);
+        String message = gMailService.waitMessage(messageSubject, messageTo, messageFrom, 90);
         System.out.println("Content: " + message);
 
-        String resetPasswordUrl = StringUtils.substringBetween(message,"href=\"",
+        resetPasswordUrl = StringUtils.substringBetween(message,"href=\"",
                 "\" style=\"cursor:pointer;color:#008CC9;-webkit-text-size-adjust:100%;display:inline-block;text-decoration:none;-ms-text-size-adjust:100%;\">Reset my password");// ToDo: find URL
         resetPasswordUrl.replace("amp","");
-        driver.get(resetPasswordUrl);
+
+        return new RequestPasswordResetSubmitPage(driver);
 
 
 

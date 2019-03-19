@@ -2,6 +2,7 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import page.ChooseNewPasswordPage;
 import page.RequestPasswordResetSubmitPage;
 import page.ResetPasswordPage;
 
@@ -20,7 +21,11 @@ public class ResetPassword extends BaseTest {
 
         //resetPasswordPage.findAccount(userEmail);
 
-        RequestPasswordResetSubmitPage requestPasswordResetSubmitPage = resetPasswordPage.findAccount(userEmail);
+        RequestPasswordResetSubmitPage requestPasswordResetSubmitPage =
+                resetPasswordPage.findAccount(userEmail);
+
+        ChooseNewPasswordPage chooseNewPasswordPage =
+                requestPasswordResetSubmitPage.navigateToLinkFromEmail();
 
 
     }

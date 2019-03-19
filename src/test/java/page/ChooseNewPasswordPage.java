@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ChooseNewPassword {
+public class ChooseNewPasswordPage extends BasePage{
 
-    private WebDriver driver;
+
 
     //@FindBy(xpath = "")
     //WebElement
 
-    public ChooseNewPassword(WebDriver driver) {
+    public ChooseNewPasswordPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 

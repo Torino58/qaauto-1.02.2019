@@ -11,9 +11,8 @@ import static java.lang.Thread.sleep;
 /**
  * Page Object class for Landing page.
  */
-public class LandingPage {
+public class LandingPage extends BasePage {
 
-    private WebDriver driver;
 
     @FindBy(xpath = "//input[@class='login submit-button']")
     private WebElement signInButton;
