@@ -11,8 +11,7 @@ public class ResetPassword extends BaseTest {
     @Test
     public void resetPasswordTest() {
         String userEmail = "zilinskiy555@gmail.com";
-       // String newPassword = "pbkbycrbq666";
-       // String confirmNewPassword = "pbkbycrbq666";
+
 
         Assert.assertTrue(landingPage.isPageLoaded(), "Landing page is not loaded");
 
