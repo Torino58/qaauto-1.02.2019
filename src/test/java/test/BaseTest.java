@@ -13,7 +13,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void beforeMethod() {
-        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\SkillUP_Student\\Desktop\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.linkedin.com/");
         landingPage = new LandingPage(driver);

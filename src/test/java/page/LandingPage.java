@@ -38,7 +38,13 @@ public class LandingPage extends BasePage {
 
     }
 
-
+    /**
+     * Login method that return one of Pages.
+     * @param userEmail  - user email for login on  page.
+     * @param userPassword - user password for Login on  page.
+     * @param <T> - generic type that return one of page classes what we need for @Test.
+     * @return - returning one of Pages.
+     */
     public <T> T login(String userEmail, String userPassword) {
         userEmailField.sendKeys(userEmail);
         userPasswordField.sendKeys(userPassword);
