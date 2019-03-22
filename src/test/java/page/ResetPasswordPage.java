@@ -20,6 +20,11 @@ public class ResetPasswordPage extends BasePage{
     @FindBy(xpath = "//button[@class='form__submit']")
     WebElement submitButton;
 
+    /**
+     * Constructor for Landing page.
+     *
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public ResetPasswordPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

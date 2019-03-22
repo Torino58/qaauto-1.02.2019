@@ -19,7 +19,11 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//form[@id='extended-nav-search']//input")
     private WebElement searchField;
 
-
+    /**
+     * Constructor for Landing page.
+     *
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

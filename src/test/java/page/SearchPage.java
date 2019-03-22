@@ -21,6 +21,11 @@ public class SearchPage extends BasePage{
     public
     List<WebElement> searchResultElements;
 
+    /**
+     * Constructor for Landing page.
+     *
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public SearchPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

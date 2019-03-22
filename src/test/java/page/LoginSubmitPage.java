@@ -17,7 +17,11 @@ public class LoginSubmitPage extends BasePage{
     @FindBy(xpath = "//div[@id='error-for-username']")
     private WebElement emailValidationMessage;
 
-
+    /**
+     * Constructor for Landing page.
+     *
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public LoginSubmitPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

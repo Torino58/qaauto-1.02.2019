@@ -11,7 +11,11 @@ public class ChooseNewPasswordPage extends BasePage{
 
     //@FindBy(xpath = "")
     //WebElement
-
+    /**
+     * Constructor for Landing page.
+     *
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public ChooseNewPasswordPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

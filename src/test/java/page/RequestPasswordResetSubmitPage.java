@@ -10,6 +10,11 @@ public class RequestPasswordResetSubmitPage extends BasePage{
     @FindBy(xpath = "//button[@id = 'resend-url']")
     WebElement resendLinkButton;
 
+    /**
+     * Constructor for Landing page.
+     *
+     * @param driver - WebDriver instance from BaseTest.
+     */
     public RequestPasswordResetSubmitPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
